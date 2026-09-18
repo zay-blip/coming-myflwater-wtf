@@ -1,72 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coming soon</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A sourced Florida comparison of data centers, retail footprints, farming, golf and landscape irrigation.">
+  <title>Florida's Real Resource Footprint</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Data Centers: The Real Numbers">
+  <meta property="og:description" content="See Florida's actual land, water and cooling comparisons—then judge data centers by the same yardstick.">
+  <meta property="og:url" content="https://myflwater.wtf">
+  <meta property="og:image" content="/og.png">
+  <meta property="og:image:width" content="1744">
+  <meta property="og:image:height" content="917">
+  <meta property="og:image:alt" content="Data Centers: The Real Numbers — Florida land, water and cooling">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Data Centers: The Real Numbers">
+  <meta name="twitter:description" content="Florida land, water and cooling comparisons—with sources and methodology.">
+  <meta name="twitter:image" content="/og.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%23071118'/%3E%3Cpath d='M11 35h42M17 27h30M23 19h18' stroke='%2336e0a0' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
   <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        linear-gradient(180deg, rgba(10,14,28,.72), rgba(10,14,28,.88)),
-        repeating-linear-gradient(
-          180deg,
-          #b22234 0 7.69%,
-          #fff 7.69% 15.38%
-        );
-      color: #f5f7ff;
-      text-align: center;
-      padding: 2rem;
-    }
-    .card {
-      max-width: 28rem;
-      padding: 2.5rem 2rem;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 1.25rem;
-      background: rgba(8,12,24,.78);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-    }
-    .flag {
-      font-size: 2.5rem;
-      line-height: 1;
-      margin-bottom: .75rem;
-    }
-    h1 {
-      font-size: clamp(1.8rem, 5vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: .04em;
-      margin-bottom: .6rem;
-    }
-    p {
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: .95rem;
-      opacity: .82;
-      line-height: 1.45;
-    }
-    .domain {
-      margin-top: 1.25rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: .8rem;
-      opacity: .55;
-      letter-spacing: .02em;
-    }
+    :root{--ink:#eef7f2;--muted:#9fb3aa;--bg:#071118;--panel:#0d1b22;--line:#24404b;--green:#36e0a0;--blue:#4aa8ff;--orange:#ff9b52;--red:#ff665f;--gold:#ffd166;--shadow:0 22px 60px #0008}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 78% -8%,#123849 0,transparent 35%),var(--bg);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:#a7d7ff}.wrap{width:min(1180px,calc(100% - 32px));margin:auto}.eyebrow{color:var(--green);font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:.78rem}.hero{padding:72px 0 42px;border-bottom:1px solid var(--line)}h1{font-size:clamp(2.5rem,7vw,6.3rem);line-height:.92;letter-spacing:-.065em;max-width:1000px;margin:.2em 0}.lead{font-size:clamp(1.06rem,2vw,1.42rem);max-width:800px;color:#c9d8d1}.truth{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:38px}.stat{background:linear-gradient(145deg,#10242b,#0a171d);border:1px solid var(--line);padding:22px;border-radius:18px}.stat b{display:block;font-size:clamp(2rem,4vw,3.6rem);line-height:1;color:var(--green);letter-spacing:-.05em}.stat span{color:var(--muted)}nav{position:sticky;top:0;z-index:5;background:#071118e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}nav .wrap{display:flex;gap:8px;overflow:auto;padding:10px 0}nav a{white-space:nowrap;text-decoration:none;color:var(--ink);border:1px solid var(--line);padding:8px 13px;border-radius:999px;font-weight:700;font-size:.88rem}
+    section{padding:70px 0;border-bottom:1px solid var(--line)}h2{font-size:clamp(2rem,4vw,3.6rem);line-height:1;letter-spacing:-.045em;margin:.1em 0 .3em}.intro{max-width:760px;color:var(--muted);margin-bottom:30px}.callout{border-left:5px solid var(--green);background:#0c1c20;padding:20px 24px;border-radius:0 16px 16px 0;font-size:1.1rem;margin:26px 0}.callout b{color:var(--green)}
+    .board{display:grid;gap:10px}.row{display:grid;grid-template-columns:48px minmax(145px,210px) 1fr auto;gap:15px;align-items:center;background:var(--panel);border:1px solid #18333c;padding:13px 16px;border-radius:13px}.rank{width:35px;height:35px;display:grid;place-items:center;border-radius:10px;background:#152b34;color:var(--gold);font-weight:900}.name{font-weight:850}.sub{display:block;color:var(--muted);font-size:.76rem;font-weight:500}.track{height:12px;background:#081015;border-radius:20px;overflow:hidden}.bar{height:100%;width:var(--w);border-radius:20px;background:linear-gradient(90deg,var(--blue),#80d4ff)}.row.dc{border-color:#2aa879}.row.dc .bar{background:linear-gradient(90deg,#169d6d,var(--green))}.value{font-variant-numeric:tabular-nums;font-weight:900;min-width:74px;text-align:right}.badge{font-size:.7rem;padding:3px 7px;border:1px solid #356070;border-radius:99px;color:#bcd2da;margin-left:5px}
+    .water-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:22px}.water-card,.method{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px}.water-line{margin:20px 0}.water-label{display:flex;justify-content:space-between;gap:10px;margin-bottom:6px}.water-label strong:last-child{font-variant-numeric:tabular-nums}.water-track{height:18px;background:#081015;border-radius:99px;overflow:hidden}.water-fill{height:100%;width:var(--w);background:linear-gradient(90deg,var(--orange),var(--red));border-radius:99px}.water-line.dc .water-fill{background:var(--green);min-width:4px}.method ul{padding-left:20px;color:var(--muted)}.method strong{color:var(--ink)}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}.side{padding:28px;border-radius:22px;border:1px solid var(--line);background:var(--panel)}.side.good{box-shadow:inset 0 4px 0 var(--green)}.side.old{box-shadow:inset 0 4px 0 var(--orange)}.side h3{font-size:1.6rem;margin:0 0 15px}.side li{margin:11px 0}.verdict{font-size:clamp(1.55rem,3vw,2.6rem);line-height:1.2;letter-spacing:-.03em;padding:30px;border:1px solid #2aa879;border-radius:22px;background:linear-gradient(135deg,#0d2b25,#0c1b22)}
+    details{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:15px 18px;margin:9px 0}summary{cursor:pointer;font-weight:800}.sources ol{color:var(--muted);padding-left:22px}.fine{font-size:.82rem;color:#81988e}.footer{padding:36px 0 70px;color:var(--muted)}
+    @media(max-width:760px){.hero{padding-top:48px}.truth,.water-grid,.compare{grid-template-columns:1fr}.row{grid-template-columns:40px 1fr auto}.track{grid-column:2/4}.value{grid-row:1;grid-column:3}.badge{display:none}section{padding:52px 0}}
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="flag" aria-hidden="true">🇺🇸</div>
-    <h1>Coming soon</h1>
-    <p>Something’s cooking. Check back.</p>
-    <div class="domain" id="host"></div>
+  <header class="hero"><div class="wrap">
+    <div class="eyebrow">Florida resource reality check</div>
+    <h1>Put data centers in perspective.</h1>
+    <p class="lead">Florida already supports thousands of stores, restaurants, gas stations, warehouses, irrigated lawns, farms and golf courses. A modern data center deserves scrutiny—but it should be judged by the same yardstick.</p>
+    <div class="truth">
+      <div class="stat"><b>123</b><span>operating Florida data-center records</span></div>
+      <div class="stat"><b>897</b><span>Publix stores reported by Publix</span></div>
+      <div class="stat"><b>≈0</b><span>daily cooling water for a true closed-loop, dry-cooled design</span></div>
+    </div>
+  </div></header>
+  <nav><div class="wrap"><a href="#footprint">Location leaderboard</a><a href="#water">Water leaderboard</a><a href="#cooling">Cooling truth</a><a href="#method">Method & sources</a></div></nav>
+
+  <main>
+    <section id="footprint"><div class="wrap">
+      <div class="eyebrow">Leaderboard 01</div><h2>Florida locations and facilities</h2>
+      <p class="intro">Approximate current counts. Data centers rank near the bottom—not because impacts are irrelevant, but because Florida already operates far larger networks of commercial sites.</p>
+      <div class="board" id="locationBoard"></div>
+      <p class="fine">“Malls” has no single authoritative statewide definition, so it is excluded from the ranked count. Florida has hundreds of enclosed malls and thousands of broader shopping centers; mixing those categories would be misleading. Amazon includes fulfillment, sortation, distribution and delivery facilities.</p>
+    </div></section>
+
+    <section id="water"><div class="wrap">
+      <div class="eyebrow">Leaderboard 02</div><h2>Water: the scale people leave out</h2>
+      <p class="intro">Million gallons per day (MGD). These categories are not identical: agriculture and golf figures are statewide withdrawals; residential landscape irrigation is a transparent estimate; dry-cooled data-center cooling is a design condition.</p>
+      <div class="water-grid">
+        <div class="water-card" id="waterBoard"></div>
+        <aside class="method">
+          <h3>What the chart actually says</h3>
+          <ul>
+            <li><strong>Agriculture:</strong> roughly 2.1 billion gallons of freshwater withdrawn daily in Florida’s latest complete USGS statewide report.</li>
+            <li><strong>Residential landscapes:</strong> a midpoint estimate, not an audited total. UF/IFAS says at least half of household water can go to landscape irrigation.</li>
+            <li><strong>Golf:</strong> 187 MGD of freshwater in the cited Florida DEP analysis; some courses also use reclaimed water.</li>
+            <li><strong>Closed-loop data center:</strong> dry coolers reject heat to air without evaporation, blowdown or continuous makeup water.</li>
+          </ul>
+        </aside>
+      </div>
+      <div class="callout"><b>Perspective:</b> Florida golf-course irrigation alone was reported at about 187 million gallons per day. A properly specified closed-loop data center with dry heat rejection can use essentially no day-to-day water for cooling.</div>
+    </div></section>
+
+    <section id="cooling"><div class="wrap">
+      <div class="eyebrow">The engineering matters</div><h2>“Closed loop” must mean the right thing.</h2>
+      <div class="compare">
+        <article class="side good"><h3>Specify this</h3><ul><li>Direct-to-chip liquid cooling</li><li>Sealed recirculating coolant loop</li><li>Dry coolers that reject heat to outside air</li><li>No evaporative cooling tower</li><li>No continuous cooling-water makeup</li><li>Meter and publicly report remaining domestic water use</li></ul></article>
+        <article class="side old"><h3>Do not confuse it with this</h3><ul><li>A “closed” internal loop connected to an evaporative tower</li><li>Cooling-tower evaporation</li><li>Regular blowdown and chemical treatment</li><li>Continuous replacement water</li><li>Unreported peak-day withdrawals</li><li>Marketing language without a binding design standard</li></ul></article>
+      </div>
+    </div></section>
+
+    <section><div class="wrap"><div class="verdict">The honest argument is not that data centers have no impact. It is that <strong>design determines impact</strong>—and Florida already accepts much larger land and water footprints for ordinary consumption, landscaping and recreation.</div></div></section>
+
+    <section id="method" class="sources"><div class="wrap">
+      <div class="eyebrow">Read before quoting</div><h2>Method, limits and sources</h2>
+      <details open><summary>Why some numbers say “approximately”</summary><p>Store networks change weekly. Commercial directories also count store-within-a-store pharmacies, campuses, buildings and proposed projects differently. The page uses rounded, current planning counts and labels the 123 data-center figure as operational records. It does not pretend that every site has the same acreage, electrical load or water demand.</p></details>
+      <details><summary>Why there is no fake statewide land total</summary><p>Florida does not publish audited parcel acreage for every chain on this page. Applying one assumed acreage to every location would produce a dramatic—but unreliable—number. Location counts are shown directly; land claims should be added only after parcel-level GIS analysis.</p></details>
+      <details><summary>Why retail water is not ranked</summary><p>Chain-specific Florida water totals are generally not public. EPA reports a median supermarket water-use intensity of 31 gallons per square foot per year, but applying that benchmark across mixed formats would be a model, not measured consumption.</p></details>
+      <ol>
+        <li><a href="https://dcmap.us/states/florida/">DC Map — Florida facilities and project lifecycle, updated August 2026</a></li>
+        <li><a href="https://corporate.publix.com/">Publix corporate facts and figures</a></li>
+        <li><a href="https://www.usgs.gov/publications/water-withdrawals-uses-and-trends-florida-2015">USGS — Water withdrawals, uses and trends in Florida</a></li>
+        <li><a href="https://floridadep.gov/water/domestic-wastewater/documents/use-reclaimed-water-golf-courses">Florida DEP — Use of reclaimed water on golf courses</a></li>
+        <li><a href="https://gardeningsolutions.ifas.ufl.edu/design/sustainable-design/water-infographic/">UF/IFAS — Florida household landscape-irrigation guidance</a></li>
+        <li><a href="https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P1019QGE.txt">EPA WaterSense — water-use intensity benchmarks</a></li>
+        <li><a href="https://about.fb.com/news/2025/12/advancing-water-stewardship-in-metas-data-center-communities/">Meta — closed-loop liquid cooling with dry coolers</a></li>
+        <li><a href="https://www.aboutamazon.com/workplace/facilities">Amazon — facility types and typical fulfillment-center size</a></li>
+      </ol>
+      <p class="fine">Location figures other than Publix and data centers are rounded working counts assembled from company locators and commercial location directories in September 2026. They should be refreshed before use in paid advertising, testimony or formal filings.</p>
+    </div></section>
   </main>
+  <footer class="footer"><div class="wrap">Florida Resource Reality Check · Built for an evidence-first public conversation</div></footer>
   <script>
-    document.getElementById('host').textContent = location.hostname || '';
+    const places=[
+      ['7-Eleven',1050,'approx. stores'],['Publix',897,'company-reported stores'],['McDonald’s',880,'approx. restaurants'],['Circle K',850,'approx. stores'],['CVS',840,'approx. pharmacies'],['Walgreens',780,'approx. pharmacies'],['Walmart',390,'approx. retail units'],['RaceTrac',250,'approx. stores'],['Target',130,'approx. stores'],['Data centers',123,'operational records'],['Amazon',69,'approx. logistics facilities']
+    ];
+    const max=Math.max(...places.map(x=>x[1]));
+    document.querySelector('#locationBoard').innerHTML=places.map((p,i)=>`<div class="row ${p[0]==='Data centers'?'dc':''}"><div class="rank">${i+1}</div><div class="name">${p[0]} ${p[0]==='Data centers'?'<span class="badge">REFERENCE</span>':''}<span class="sub">${p[2]}</span></div><div class="track"><div class="bar" style="--w:${p[1]/max*100}%"></div></div><div class="value">${p[1].toLocaleString()}</div></div>`).join('');
+    const waters=[['Agricultural freshwater withdrawals',2117,'USGS statewide'],['Residential landscape irrigation',680,'modeled midpoint'],['Golf-course freshwater irrigation',187,'Florida DEP'],['Dry-cooled closed-loop data centers',0,'cooling only']];
+    const wmax=waters[0][1];
+    document.querySelector('#waterBoard').innerHTML=waters.map(p=>`<div class="water-line ${p[0].startsWith('Dry')?'dc':''}"><div class="water-label"><span><strong>${p[0]}</strong><span class="sub">${p[2]}</span></span><strong>${p[1]===0?'≈ 0':p[1].toLocaleString()} MGD</strong></div><div class="water-track"><div class="water-fill" style="--w:${Math.max(.3,p[1]/wmax*100)}%"></div></div></div>`).join('');
   </script>
 </body>
 </html>
